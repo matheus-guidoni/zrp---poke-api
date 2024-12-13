@@ -18,6 +18,6 @@ npm start   # or yarn start
 mvn spring-boot:run
 
 ``` 
-## 3 Enjoy your PokeSearch 🎉
+## 3. Enjoy your PokeSearch 🎉
 
 You can use this software to browse through Pokémon and discover their abilities and stats.
