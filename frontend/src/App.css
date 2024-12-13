@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #183b56;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.pokedex-container {
+  background: #e2e2e2;
+  border: 5px solid #d10000;
+  border-radius: 20px;
+  width: 300px;
+  padding: 10px;
+}
+
+.pokedex-screen {
+  background: #f9f9f9;
+  border: 3px solid #d10000;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #d10000;
+  padding: 5px;
+  border: 2px solid #d10000;
+  border-radius: 5px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.search-label {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.search-input {
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  outline: none;
+  width: 130px;
+}
+
+.pokemon-display {
+  position: relative;
+  background: #ffffff;
+  border: 2px solid #d10000;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.arrow-btn {
+  position: absolute;
+  top: 5px;
+  background: #d10000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.left-arrow {
+  left: 5px;
+}
+
+.right-arrow {
+  right: 5px;
+}
+
+.display-mode {
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.default-mode {
+  color: #d10000;
+}
+
+.shiny-mode {
+  color: #00a500;
+}
+
+.button-search {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.pokemon-image-container {
+  margin-top: 15px;
+  background: #ccc;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon-image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.stats-table {
+  border: 2px solid #d10000;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.stats-header {
+  display: flex;
+  background: #f9f9f9;
+  border-bottom: 2px solid #d10000;
+  font-weight: bold;
+}
+
+.base-header, .stats-header-title {
+  flex: 1;
+  text-align: center;
+  border-right: 2px solid #d10000;
+  padding: 5px;
+}
+
+.stats-header-title {
+  border-right: none;
+}
+
+.stats-row {
+  display: flex;
+  background: #d10000;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  font-weight: bold;
+}
+
+.stat-label, .stat-value {
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-right: 1px solid #fff;
+  display: flex;
+}
+
+.stat-value {
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.error-message {
+  color: #d10000;
+  font-weight: bold;
+  text-align: center;
+}

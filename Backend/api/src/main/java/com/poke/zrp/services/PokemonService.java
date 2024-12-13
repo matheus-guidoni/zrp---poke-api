@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import com.poke.zrp.dto.PokemonDetailsDTO;
 import com.poke.zrp.dto.PokemonResponse;
+import com.poke.zrp.dto.StatDTO;
 import com.poke.zrp.exception.PokemonNotFoundException;
 
 @Service
@@ -36,5 +38,25 @@ public class PokemonService {
                 .map(a -> a.getAbility().getName())
                 .sorted(String::compareToIgnoreCase)
                 .collect(Collectors.toList());
+    }
+
+    public PokemonDetailsDTO getPokemonDetails(String pokemonName) {
+        RestTemplate restTemplate = new RestTemplate();
+        PokemonResponse response = restTemplate.getForObject(POKEAPI_URL + pokemonName.toLowerCase(), PokemonResponse.class);
+
+        if (response == null || response.getStats() == null || response.getSprites() == null) {
+            throw new RuntimeException("Não foi possível obter informações para o Pokémon " + pokemonName);
+        }
+
+        // Mapeia os stats para StatDTO
+        List<StatDTO> statsList = response.getStats().stream()
+            .map(sw -> new StatDTO(sw.getStat().getName(), sw.getBase_stat()))
+            .collect(Collectors.toList());
+
+        // Obtém as URLs das imagens
+        String frontImageUrl = response.getSprites().getFront_default();
+        String backImageUrl = response.getSprites().getBack_default();
+
+        return new PokemonDetailsDTO(statsList, frontImageUrl, backImageUrl);
     }
 }
