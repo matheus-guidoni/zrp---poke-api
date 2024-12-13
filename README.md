@@ -11,7 +11,7 @@ npm start   # or yarn start
 ```
 
 
-## 2. In another terminal, go to the _Banckend/api_ folder and run:
+## 2. In another terminal, go to the _Backend/api_ folder and run:
 
 
 ```sh
