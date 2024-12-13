@@ -25,7 +25,7 @@ public class PokemonService {
             response = restTemplate.getForObject(POKEAPI_URL + pokemonName.toLowerCase(), PokemonResponse.class);
         } catch (HttpClientErrorException e) {
             if (e.getStatusCode().value() == 404) {
-                throw new PokemonNotFoundException("Pokemon '" + pokemonName + "' not found.");
+                throw new PokemonNotFoundException("Pokemon '" + pokemonName + "' not found");
             } else {
                 throw new RuntimeException("Error while finding Pokemon: " + e.getMessage(), e);
             }
@@ -45,15 +45,12 @@ public class PokemonService {
         PokemonResponse response = restTemplate.getForObject(POKEAPI_URL + pokemonName.toLowerCase(), PokemonResponse.class);
 
         if (response == null || response.getStats() == null || response.getSprites() == null) {
-            throw new RuntimeException("Não foi possível obter informações para o Pokémon " + pokemonName);
+            throw new RuntimeException("Couldn't find any information about the Pokemon " + pokemonName);
         }
-
-        // Mapeia os stats para StatDTO
         List<StatDTO> statsList = response.getStats().stream()
             .map(sw -> new StatDTO(sw.getStat().getName(), sw.getBase_stat()))
             .collect(Collectors.toList());
 
-        // Obtém as URLs das imagens
         String frontImageUrl = response.getSprites().getFront_default();
         String backImageUrl = response.getSprites().getBack_default();
 

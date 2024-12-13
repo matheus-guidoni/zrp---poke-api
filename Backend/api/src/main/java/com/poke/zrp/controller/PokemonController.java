@@ -9,12 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.poke.zrp.dto.PokemonDetailsDTO;
-import com.poke.zrp.dto.StatDTO;
 import com.poke.zrp.services.PokemonService;
 
 @RestController
 @RequestMapping("/api/pokemons")
-@CrossOrigin(origins = "http://localhost:3000") // Permite requisições do front-end
+@CrossOrigin(origins = "http://localhost:3000") 
 public class PokemonController {
 
     private final PokemonService pokemonService;
